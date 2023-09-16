@@ -13,6 +13,13 @@ const sampleExpenses: Expense[] = [
     },
     {
         id: uuid.v4() as string,
+        category: 'Food',
+        date: '05.09.2023',
+        amount: 34,
+        name: 'Pizza'
+    },
+    {
+        id: uuid.v4() as string,
         category: 'Gas',
         date: '02.09.2023',
         amount: 220,

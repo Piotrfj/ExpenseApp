@@ -35,10 +35,10 @@ function ExpenseForm() {
         setFocus
     } = useForm({
         defaultValues: {
-            category: dayjs(inputDate).format('DD.MM.YYYY'),
+            category: '',
             name: '',
             amount: '',
-            date: '',
+            date: dayjs(inputDate).format('DD.MM.YYYY'),
         }
     });
 
@@ -63,6 +63,7 @@ function ExpenseForm() {
                     <DatePickerInput
                         locale="pl"
                         label="Data"
+                        testID={'data-test'}
                         value={inputDate}
                         onChange={(value) => {
                             setInputDate(value as Date);
@@ -83,9 +84,10 @@ function ExpenseForm() {
                         open={isCategoryDropdownOpen}
                         value={selectedCategory}
                         placeholder="Choose category"
+                        testID={'category-test'}
                         items={CategoryDropdownItems}
                         setOpen={setIsCategoryDropdownOpen}
-                        onSelectItem={value => onChange(value.label)}
+                        onChangeValue={value => onChange(value)}
                         setValue={setSelectedCategory}
                         textStyle={FormStyles.dropdownText}
                         style={[FormStyles.dropdown, errors.category ? FormStyles.dropdownError : []]}

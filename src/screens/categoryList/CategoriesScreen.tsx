@@ -14,11 +14,11 @@ function CategoriesScreen() {
 
     return (
         <BottomSheetModalProvider>
-            <Text style={styles.screenTitle}>Categories</Text>
+            <Text style={styles.screenTitle}>Categories list</Text>
             <ScrollView>
                 {categories.map((category, i) => (
                     <>
-                        {i > 0 && <Divider />}
+                        {i > 0 && <Divider key={'divider-' + category.id}/>}
                         <Text style={styles.categoryItem} key={category.id}>{category.name}</Text>
                     </>
                 ))}
@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         textAlign: 'center',
         marginBottom: 10,
+        marginTop: 12,
     },
     formContainer: {
       padding: 20,
